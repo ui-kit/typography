@@ -6,7 +6,7 @@ Scaled typography for ESS
 
 You can use it out of the box
 
-    import 'ui-kit-typography.ess'
+    import 'ui-kit-typography/index.ess'
 
 ...and configure it in your root
 
@@ -36,6 +36,8 @@ Or you can use it dynamically
 - `round`: how much to round the calculated properties. For example, with
 a value of 1000, a property of 3.33333333333 will be rounded to 3.333 (default: 10)
 - `mid`: which index in the range to use as the center of the scale (default: 2)
+
+##
 
 ## License
 

@@ -1,0 +1,26 @@
+{
+  "name": "ui-kit-typography",
+  "version": "1.0.0",
+  "description": "scaled typography for ESS",
+  "main": "index.ess",
+  "dependencies": {
+    "stringcase": "^2.0.1"
+  },
+  "scripts": {
+    "test": "poe-ui-serve src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ui-kit/typography.git"
+  },
+  "keywords": [
+    "type",
+    "typography"
+  ],
+  "author": "Michael Andrew Vanasse <michael.vanasse@optiv.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ui-kit/typography/issues"
+  },
+  "homepage": "https://github.com/ui-kit/typography"
+}

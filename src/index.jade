@@ -1,0 +1,79 @@
+import vars from '../variables.js'
+import scale from '../functions.js'
+import Scale from '../index.ess?dynamic'
+import './skin.ess'
+import './index.ess'
+
+:module
+  export function onChange(name, ev) {
+    var val = ev.target.value;
+    this.state[name] = val;
+    this.setState(this.state);
+    this.getStyles();
+  }
+  
+  export function componentDidMount() {
+    this.getStyles();
+  }
+  
+  export function getStyles() {
+    var sels = this.state.range.split(' ');
+    var vals = scale(this.state);
+    for (var i = 0; i < vals.length; i++) {
+      this.state[sels[i]] = vals[i];
+    }
+    this.setState(this.state);
+    setTimeout(() => {
+      this.state.raw = this.refs['sheet'].getDOMNode().nextSibling.textContent;
+      this.setState(this.state);
+    }, 0);
+  }
+  
+  export var initialState = vars;
+
+h1.Heading Skin
+.Display
+  .Display-left
+    pre %ui-kit-typography/index.ess(scale=1.25 range='.skin-h1 .skin-h2 .skin-h3 .skin-h4 .skin-p')
+  .Display-right
+    .skin-h1 skin-h1
+    .skin-h2 skin-h2
+    .skin-h3 skin-h3
+    .skin-h4 skin-h4
+    .skin-p skin-p
+
+hr
+
+h1.Heading Dynamic
+
+div(ref='sheet')
+Scale&props(state)
+
+.Inputs
+  each i, k in vars
+    Input(name=k)
+
+.Display
+  .Display-left
+    pre= state.raw
+  .Display-right
+    each n in (state.range || '').split(' ')
+      El(name=n)
+
+function Input(args)
+  var cx = (n) => `Input${n} Input${n}-${args.name}`
+  div(className=cx(''))
+    label(className=cx('-label'))= args.name[0].toUpperCase() + args.name.slice(1)
+    input(className=cx('-text') onChange=this.onChange.bind(null, args.name) value=state[args.name])
+
+function El(args)
+  var n = args.name
+  var val = state[args.name]
+  if val
+    var rem = val + 'rem'
+    var px = (Math.round(val * state.base * state.round / 10) / (state.round / 10)) + 'px'
+    var strong = DOM('strong', null, rem + '/' + px)
+    var parts = n.split(':')[0].split('.')
+    var tag = parts.shift() || 'div';
+    var className = parts.join(' ')
+    = DOM(tag, {ref: n, className: className, contentEditable: true}, [n + ' (', strong, ')'])

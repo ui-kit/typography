@@ -1,0 +1,57 @@
+body
+  font-family Helvetica
+  margin 0
+  padding 2rem
+
+h1, h2, h3, h4, h5, h6, h7, h8, p, small
+  display block
+  font-weight 100
+  outline 0
+
+hr
+  margin 48px 0
+  border 0
+  border-bottom 1px solid lightgray
+
+.Heading
+  font-size 48px
+  margin-bottom 24px
+
+.Inputs
+  display flex
+  margin-bottom 2rem
+
+.Input
+  align-items center
+  display flex
+  margin-right 1rem
+  &-label
+    font-size 15px
+    font-weight bold
+    margin-right .5rem
+  &-text
+    border 0
+    border-bottom 1px solid lightgray
+    line-height 15px
+    outline 0
+    padding .5rem
+    width 3rem
+
+  &-range
+    order 5
+  &-margins
+    order 6
+  &-range,
+  &-margins
+    flex 1
+  &-text-range,
+  &-text-margins
+    flex 1
+    width initial
+
+.Display
+  display flex
+  &-left,
+  &-right
+    flex 1
+    

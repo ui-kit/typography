@@ -1,0 +1,22 @@
+import scale, {lookup, coerce, toArray, toHash} from './functions'
+
+var vars = lookup(__, props || this.props)
+
+html
+  font-size = vars.base + 'px'
+
+var margins = coerce(vars.margins)
+var marginsHash = typeof margins === 'string' ? toHash(vars.margins) : {}
+
+var selx = toArray(vars.range)
+var vals = scale(vars)
+var unit = 'rem' // TODO: allow pixels
+each s, i in selx
+  var val = vals[i]
+  var attrs = s.split(':')
+  var sel = attrs.shift()
+  `sel`
+    font-size = val + unit
+    if ~attrs.indexOf('m') || margins === true || marginsHash[sel]
+      margin 0
+      margin-bottom = (val / 2) + unit

@@ -1,7 +1,7 @@
 import vars from './variables';
 import {pascalcase} from 'stringcase';
 
-export default function (opts) {
+export default function scale(opts) {
   var along = opts.along || vars.along;
   var mid = opts.mid || vars.mid;
   var range = opts.range || vars.range;

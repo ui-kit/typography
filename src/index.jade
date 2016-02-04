@@ -1,35 +1,9 @@
-import vars from '../variables.js'
-import scale from '../functions.js'
+import scale, {lookup} from '../functions.js'
 import Scale from '../index.ess?dynamic'
 import './skin.ess'
 import './index.ess'
 
-:module
-  export function onChange(name, ev) {
-    var val = ev.target.value;
-    this.state[name] = val;
-    this.setState(this.state);
-    this.getStyles();
-  }
-  
-  export function componentDidMount() {
-    this.getStyles();
-  }
-  
-  export function getStyles() {
-    var sels = this.state.range.split(' ');
-    var vals = scale(this.state);
-    for (var i = 0; i < vals.length; i++) {
-      this.state[sels[i]] = vals[i];
-    }
-    this.setState(this.state);
-    setTimeout(() => {
-      this.state.raw = this.refs['sheet'].getDOMNode().nextSibling.textContent;
-      this.setState(this.state);
-    }, 0);
-  }
-  
-  export var initialState = vars;
+var vars = lookup(__)
 
 h1.Heading Skin
 .Display
@@ -77,3 +51,30 @@ function El(args)
     var tag = parts.shift() || 'div';
     var className = parts.join(' ')
     = DOM(tag, {ref: n, className: className, contentEditable: true}, [n + ' (', strong, ')'])
+
+:module
+  export function onChange(name, ev) {
+    var val = ev.target.value;
+    this.state[name] = val;
+    this.setState(this.state);
+    this.getStyles();
+  }
+  
+  export function componentDidMount() {
+    this.getStyles();
+  }
+  
+  export function getStyles() {
+    var sels = this.state.range.split(' ');
+    var vals = scale(this.state);
+    for (var i = 0; i < vals.length; i++) {
+      this.state[sels[i]] = vals[i];
+    }
+    this.setState(this.state);
+    setTimeout(() => {
+      this.state.raw = this.refs['sheet'].getDOMNode().nextSibling.textContent;
+      this.setState(this.state);
+    }, 0);
+  }
+  
+  export var initialState = lookup(__);

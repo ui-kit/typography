@@ -9,9 +9,9 @@ h1, h2, h3, h4, h5, h6, h7, h8, p, small
   outline 0
 
 hr
-  margin 48px 0
   border 0
   border-bottom 1px solid lightgray
+  margin 48px 0
 
 .Heading
   font-size 48px

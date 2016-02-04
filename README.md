@@ -33,8 +33,7 @@ Or you can use it dynamically
 - `range`: a string of selectors which will receive the calculated properties (default: 'h1 h2 h3 h4 h5 h6 h7 h8 p small')
 - `scale`: the ratio by which to size up or down the range (default: 1.125)
 - `along`: multiplied with `base` (to keep `rem` sane), then used to weight the scale (default: 1.5)
-- `round`: how much to round the calculated properties. For example, with
-a value of 1000, a property of 3.33333333333 will be rounded to 3.333 (default: 10)
+- `round`: how much to round the calculated properties. For example, with a value of 1000, a property of 3.33333333333 will be rounded to 3.333 (default: 10)
 - `mid`: which index in the range to use as the center of the scale (default: 2)
 
 ##

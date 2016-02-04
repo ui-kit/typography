@@ -5,6 +5,9 @@ var vars = lookup(__, props || this.props)
 html
   font-size = vars.base + 'px'
 
+body
+  font-size = vars.along + 'rem'
+
 var margins = coerce(vars.margins)
 var marginsHash = typeof margins === 'string' ? toHash(vars.margins) : {}
 

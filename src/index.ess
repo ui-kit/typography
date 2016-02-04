@@ -13,6 +13,9 @@ hr
   border-bottom 1px solid lightgray
   margin 48px 0
 
+pre
+  font-size 12px
+
 .Heading
   font-size 48px
   margin-bottom 24px

@@ -2,6 +2,8 @@
 
 Scaled typography for ESS
 
+<img src='http://i.imgur.com/XCiACm2.png'/>
+
 ## Usage
 
 You can use it out of the box

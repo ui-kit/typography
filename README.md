@@ -62,7 +62,7 @@ yields
 
 ### Raw Function
 
-A raw function is useful is you want to create quick one-off scales
+A raw function is useful if you want to create quick one-off scales
 
     function SizeScale(args)
       var range = 'big medium small'

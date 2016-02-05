@@ -1,0 +1,15 @@
+import scale, {lookup, coerce, toHash, calc, partsFromRange} from './functions'
+
+var vars = lookup(__, props || this.props)
+
+var margins = coerce(vars.margins)
+var marginsHash = typeof margins === 'string' ? toHash(vars.margins) : {}
+
+var [sel, i, len] = partsFromRange(vars.range, props)
+var val = calc(vars)(len - i - vars.mid)
+var unit = 'rem'
+
+font-size = val + unit
+if margins === true || marginsHash[sel]
+  margin 0
+  margin-bottom = (val / 2) + unit

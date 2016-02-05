@@ -1,1 +1,21 @@
-%../index.ess(scale=1.25 range='.skin-h1 .skin-h2 .skin-h3 .skin-h4 .skin-p')
+.skin
+  %../index.ess(scale=1.25 range='&-h1 &-h2 &-h3 &-h4 &-p' ignoreBody)
+
+.extend-h1
+  %../extend.ess(h1)
+.extend-h2
+  %../extend.ess(h2)
+.extend-h3
+  %../extend.ess(h3)
+
+function SizeScale(args)
+  var range = 'big medium small'
+  each r in range.split(' ')
+    &-`r`
+      %../extend.ess(at=r scale=args.scale along=args.along range=range mid=1 margins='')
+
+.heading
+  SizeScale(scale=1.25 along=2)
+
+.paragraph
+  SizeScale(scale=1.15 along=1)

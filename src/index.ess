@@ -54,7 +54,10 @@ pre
 
 .Display
   display flex
+  margin-top 24px
+  margin-bottom 24px
   &-left,
   &-right
     flex 1
-    
+  &-left pre
+    margin-top 0

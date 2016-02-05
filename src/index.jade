@@ -8,15 +8,54 @@ var vars = lookup(__)
 h1.Heading Skin
 .Display
   .Display-left
-    pre %ui-kit-typography/index.ess(scale=1.25 range='.skin-h1 .skin-h2 .skin-h3 .skin-h4 .skin-p')
+    pre
+      ='.skin\n'
+      ='  var range = \'&-h1 &-h2 &-h3 &-h4 &-p\'\n'
+      ='  %ui-kit-typography/index.ess(scale=1.25 range=range ignoreBody)\n'
   .Display-right
-    .skin-h1 skin-h1
-    .skin-h2 skin-h2
-    .skin-h3 skin-h3
-    .skin-h4 skin-h4
-    .skin-p skin-p
+    .skin-h1 .skin-h1
+    .skin-h2 .skin-h2
+    .skin-h3 .skin-h3
+    .skin-h4 .skin-h4
+    .skin-p .skin-p
 
-hr
+h1.Heading Extend
+.Display
+  .Display-left
+    pre
+      ='.extend-h1\n'
+      ='  %ui-kit-typography/extend.ess(h1)\n'
+      ='.extend-h2\n'
+      ='  %ui-kit-typography/extend.ess(h2)\n'
+      ='.extend-h3\n'
+      ='  %ui-kit-typography/extend.ess(h3)\n'
+  .Display-right
+    .extend-h1 .extend-h1
+    .extend-h2 .extend-h2
+    .extend-h3 .extend-h3
+
+h1.Heading Raw Function
+.Display
+  .Display-left
+    pre
+      ='function SizeScale(args)\n'
+      ='  var range = \'big medium small\'\n'
+      ='  each r in range.split(\' \')\n'
+      ='    &-`r`\n'
+      ='      %../extend.ess(at=r scale=args.scale along=args.along range=range mid=1 margins=\'\')\n'
+      ='\n'
+      ='.heading\n'
+      ='  SizeScale(scale=1.25 along=2)\n'
+      ='\n'
+      ='.paragraph\n'
+      ='  SizeScale(scale=1.15 along=1)\n'
+  .Display-right
+    .heading-big .heading-big
+    .heading-medium .heading-medium
+    .heading-small .heading-small
+    .paragraph-big .paragraph-big
+    .paragraph-medium .paragraph-medium
+    .paragraph-small .paragraph-small
 
 h1.Heading Dynamic
 

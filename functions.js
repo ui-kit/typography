@@ -6,7 +6,7 @@ export default function scale(opts) {
   var mid = opts.mid || vars.mid;
   var range = opts.range || vars.range;
   var round = opts.round || vars.round;
-  var scale = opts.scale || vars.scal;
+  var scale = opts.scale || vars.scale;
 
   return toArray(range).map((_, i) => {
     if (i === mid - 1) return roundFn(along);

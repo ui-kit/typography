@@ -2,10 +2,9 @@ import scale, {lookup, coerce, toHash, toArray} from './functions'
 
 var vars = lookup(__, props || this.props)
 
-if !vars.ignoreBody
+if vars.addBody
   html
     font-size = vars.base + 'px'
-
   body
     font-size = vars.along + 'rem'
 

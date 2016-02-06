@@ -24,7 +24,7 @@ and optionally configure it in your root
 You can pass values into `index.ess` as well, turning it into a skin
 
     .skin
-      %../index.ess(scale=1.25 range='&-h1 &-h2 &-h3 &-h4 &-p' ignoreBody)
+      %../index.ess(scale=1.25 range='&-h1 &-h2 &-h3 &-h4 &-p')
 
 yields
 
@@ -116,7 +116,7 @@ You can even use it dynamically in Jade, as shown in the demo. The API is the sa
 - `along`: multiplied with `base` (to keep `rem` sane), then used to weight the scale (default: 1.5)
 - `round`: how much to round the calculated properties. For example, with a value of 1000, a property of 3.33333333333 will be rounded to 3.333 (default: 10)
 - `mid`: which index in the range to use as the center of the scale (default: 2)
-- `ignoreBody`: when set to `true`, the `index.ess` will not apply styles to `html` or `body` (default: undefined)
+- `addBody`: when set to `true`, the `index.ess` will apply styles to `html` or `body` (default: undefined)
 
 ## License
 

@@ -1,5 +1,5 @@
 .skin
-  %../index.ess(scale=1.25 range='&-h1 &-h2 &-h3 &-h4 &-p' ignoreBody)
+  %../index.ess(scale=1.25 range='&-h1 &-h2 &-h3 &-h4 &-p')
 
 .extend-h1
   %../extend.ess(h1)

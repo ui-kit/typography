@@ -1,6 +1,8 @@
-import scale, {lookup, coerce, toHash, toArray} from './functions'
+import functions from './functions.js'
+import Vars from './index.js'
 
-var vars = lookup(__, props || this.props)
+var vars = Vars(__, props)
+var {scale, coerce, toHash, toArray} = functions(vars)
 
 if vars.addBody
   html

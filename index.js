@@ -1,4 +1,7 @@
-export default function(root, props) {
+module.exports = typography;
+exports['default'] = typography;
+
+function typography(root, props) {
   return root.get(module.id, props, {
     scale: 1.125,
     along: 1.5,

@@ -26,7 +26,6 @@ export default function(vars) {
       return roundFn(mult(along, Scale, i - mid + 1))
     }
   }
-
 }
 
 function toArray(range) {

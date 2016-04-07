@@ -5,7 +5,7 @@ import {pascalcase} from 'stringcase';
 
 export default function(vars) {
 
-  return {scale, coerce, toHash, toArray};
+  return {scale, coerce, toHash, toArray, partsFromRange, calc};
 
   function scale(opts) {
     var range = opts.range || vars.range;
@@ -32,18 +32,18 @@ function toArray(range) {
   return (range || '').split(' ').filter(x => x);
 }
 
-function toHash(list) {
+export function toHash(list) {
   if (typeof list === 'string') list = list.split(' ');
   return list.reduce((a, n) => { a[n] = true; return a; }, {});
 }
 
-function coerce(val) {
+export function coerce(val) {
   if (val === 'false' || val === 0 || val === '0') val = false;
   else if (val === 'true' || val === 1 || val === '1') val = true;
   return val;
 }
 
-function partsFromRange(range, props) {
+export function partsFromRange(range, props) {
   if (typeof range === 'string') range = toArray(range);
   if (props.at) props[props.at] = true;
   var len = range.length;

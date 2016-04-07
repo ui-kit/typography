@@ -1,5 +1,5 @@
 module.exports = typography;
-exports['default'] = typography;
+module.exports['default'] = typography;
 
 function typography(root, props) {
   return root.get(module.id, props, {

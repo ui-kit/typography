@@ -1,6 +1,8 @@
-import scale, {lookup, coerce, toHash, calc, partsFromRange} from './functions'
+import funcs from './functions'
+import lookup from './index.js'
 
-var vars = lookup(__, props || this.props)
+var vars = lookup(__, props)
+var {coerce, toHash, calc, partsFromRange} = funcs(vars)
 
 var margins = coerce(vars.margins)
 var marginsHash = typeof margins === 'string' ? toHash(vars.margins) : {}
